@@ -1,73 +1,85 @@
-import React, {useEffect, useState} from 'react'
-import { Routes, Route } from "react-router-dom"
-
-import Index from '../pages/Index'
-import Show from '../pages/Show'
+import React, { useEffect, useState } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Index from '../../Pages/Index.js';
+import Show from '../../Pages/Show.js';
+import CreatePost from '../../Pages/CreatePost.js';
 
 const Main = (props) => {
-    const [ game, setGame] = useState(null)
+  const [game, setGame] = useState(null);
+  const URL = 'http://localhost:3000/';
 
-    const URL = "http://localhost:4000/gamehub"
+  const getGame = async () => {
+    const response = await fetch(URL);
+    const data = await response.json();
+    setGame(data);
+  };
 
-    // const URL = "https://person-app-pyvm.onrender.com/people/"
+  const createGame = async (game) => {
+    const URL = 'http://localhost:4000/collection/create'; 
   
-    const getGame = async () => {
-        const response = await fetch(URL)
-        const data = await response.json()
-        setGame(data)
-    }
-
-   const createGame = async (person) => {
-        await fetch(URL, {
-            method: "POST",
-            headers: {
-                "Content-Type": "Application/json"
-            },
-            body: JSON.stringify(person)
-        })
-    }
-    const updateGame = async (person, id) => {
-        // make put request to create post
-        await fetch(URL + id, {
-          method: "PUT",
-          headers: {
-            "Content-Type": "Application/json",
-          },
-          body: JSON.stringify(person),
-        });
-
-        // update list of posts 
-        getGame();
+    try {
+      const response = await fetch(URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(game),
+      });
+  
+      if (response.ok) {
+        console.log('Game created successfully');
+       
+      } else {
+        console.log('Failed to create game');
+        
       }
-    
-      const deleteGames = async id => {
-        // make delete request to create post
-        await fetch(URL + id, {
-          method: "DELETE",
-        })
-        // update list of post
-        getGame();
-      }
+    } catch (error) {
+      console.log('Error creating game:', error);
+      
+    }
+  };
+  
 
-    useEffect(() => getGame(), [])
+  const updateGame = async (game, id) => {
+    await fetch(URL + id, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(game),
+    });
+
+    getGame();
+  };
+
+  const deleteGame = async (id) => {
+    await fetch(URL + id, {
+      method: 'DELETE',
+    });
+
+    getGame();
+  };
+
+  useEffect(() => {
+    getGame();
+  }, []);
 
   return (
     <main>
-    <Routes>
-        <Route exact path="/" element={<Index people={people} createGame={createPeople}/>} />
+      <Routes>
+        <Route path="/collection" element={<Index game={game} />} />
         <Route
-          path="/gamehub/:id"
-          element = {
-            <Show
-              game={game}
-              updatePeople={updateGame}
-              deletePeople={deleteGame}
-            />
-          }
+          path="/collection/:id"
+          element={<Show game={game} updateGame={updateGame} deleteGame={deleteGame} />}
         />
-    </Routes>
-   </main>
-     )
-}
+        <Route
+          path="/collection/create"
+          element={<CreatePost createGame={createGame} />}
+        />
 
-export default Main
+      </Routes>
+    </main>
+  )
+};
+
+export default Main;
