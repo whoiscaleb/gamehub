@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Index from '../../Pages/Index.js';
 import Show from '../../Pages/Show.js';
 import CreatePost from '../../Pages/CreatePost.js';
+import Home from '../../Pages/Home.js';
 
 const Main = () => {
   const [gameData, setGameData] = useState(null);
@@ -72,6 +73,7 @@ const Main = () => {
           path="/collection/create"
           element={<CreatePost createGame={createGame} />}
         />
+        <Route path="/" element={<Home />} />
       </Routes>
     </main>
   );
