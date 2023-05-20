@@ -1,25 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const Index = () => {
-  const [game, setGame] = useState(null);
+const Index = ({ game }) => {
+  const [gameData, setGameData] = useState(null);
 
   useEffect(() => {
     // Fetch game data from Mongo
-    fetch('/gamehub')
+    fetch('http://localhost:4000/collection')
       .then((response) => response.json())
-      .then((data) => setGame(data))
+      .then((data) => setGameData(data))
       .catch((error) => console.log(error));
   }, []);
 
   const loaded = () => {
-    return game.map((game) => (
-      <div key={game._id} className="post">
-        <Link to={`/collection/${game._id}`}>
-          <h1>{game.Game}</h1>
+    console.log(game); // Add this line to log the game variable
+
+    return gameData.map((gameItem) => (
+      <div key={gameItem._id} className="post">
+        <Link to={`/collection/${gameItem._id}`}>
+          <h1>{gameItem.Game}</h1>
         </Link>
-        <img src={game.Image} alt={game.Game} />
-        <h3>{game.Genre}</h3>
+        <img src={gameItem.Image} alt={gameItem.Game} />
+        <h3>{gameItem.Genre}</h3>
       </div>
     ));
   };
@@ -30,8 +32,7 @@ const Index = () => {
 
   return (
     <section>
-      {game ? loaded() : loading()}
-      <Link to="/collection/create">Create New Post</Link>
+      {gameData ? loaded() : loading()}
     </section>
   );
 };

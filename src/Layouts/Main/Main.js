@@ -4,49 +4,45 @@ import Index from '../../Pages/Index.js';
 import Show from '../../Pages/Show.js';
 import CreatePost from '../../Pages/CreatePost.js';
 
-const Main = (props) => {
-  const [game, setGame] = useState(null);
+const Main = () => {
+  const [gameData, setGameData] = useState(null);
   const URL = 'http://localhost:3000/';
 
   const getGame = async () => {
     const response = await fetch(URL);
     const data = await response.json();
-    setGame(data);
+    setGameData(data);
   };
 
-  const createGame = async (game) => {
-    const URL = 'http://localhost:4000/collection/create'; 
-  
+  const createGame = async (newGame) => {
+    const createURL = 'http://localhost:4000/collection/create';
+
     try {
-      const response = await fetch(URL, {
+      const response = await fetch(createURL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(game),
+        body: JSON.stringify(newGame),
       });
-  
+
       if (response.ok) {
         console.log('Game created successfully');
-       
       } else {
-        console.log('Failed to create game');
-        
+        console.log('Failed to create Game');
       }
     } catch (error) {
-      console.log('Error creating game:', error);
-      
+      console.log('Error creating Game:', error);
     }
   };
-  
 
-  const updateGame = async (game, id) => {
+  const updateGame = async (updatedGame, id) => {
     await fetch(URL + id, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(game),
+      body: JSON.stringify(updatedGame),
     });
 
     getGame();
@@ -67,19 +63,18 @@ const Main = (props) => {
   return (
     <main>
       <Routes>
-        <Route path="/collection" element={<Index game={game} />} />
+        <Route path="/collection" element={<Index gameData={gameData} />} />
         <Route
           path="/collection/:id"
-          element={<Show game={game} updateGame={updateGame} deleteGame={deleteGame} />}
+          element={<Show gameData={gameData} updateGame={updateGame} deleteGame={deleteGame} />}
         />
         <Route
           path="/collection/create"
           element={<CreatePost createGame={createGame} />}
         />
-
       </Routes>
     </main>
-  )
+  );
 };
 
 export default Main;
