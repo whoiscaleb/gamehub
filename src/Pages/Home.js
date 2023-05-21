@@ -1,15 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import Main from '../Layouts/Main/Main';
+import Header from '../Layouts/Header/Header';
 
 const Home = () => {
   return (
-   <div>
-    <h1>Welcome to GameHub</h1>
-    <h3>See what everybody is playing</h3>
-    <Link to="/collection">
-        <button>Browse Collections</button>
-      </Link>
+   <div className="home">
+      <Header/>
+      <Main />
    </div>
    
   )
