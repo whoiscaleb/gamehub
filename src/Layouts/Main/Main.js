@@ -4,9 +4,12 @@ import Index from '../../Pages/Index.js';
 import Show from '../../Pages/Show.js';
 import CreatePost from '../../Pages/CreatePost.js';
 import "../../Assets/Styles/index.css"
+import { Link } from 'react-router-dom';
 const Main = () => {
   const [gameData, setGameData] = useState(null);
   const URL = 'http://localhost:3000/';
+
+
 
   const getGame = async () => {
     const response = await fetch(URL);
@@ -73,11 +76,13 @@ const Main = () => {
           element={<CreatePost createGame={createGame} />}
         />
       </Routes>
-      {/* <div className="main">
+      <div className="main">
         <div className="col">
-          <h2>Your Games</h2>
+          <h2>GameHub</h2>
           <p>Reviews on the latest games releasing. Make sure every game is worth that hefty price tag.</p>
-          <button type="button">Browse Games</button>
+          <Link to="/collection">
+          <button className="browse-games-button"type="button">Browse Games</button>
+          </Link>
         </div>
         <div className="col">
           <div className="card card1"></div>
@@ -87,7 +92,7 @@ const Main = () => {
           <div className="card card5"></div>
           <div className="card card6"></div>
         </div>
-      </div> */}
+      </div>
     </main>
   );
 };

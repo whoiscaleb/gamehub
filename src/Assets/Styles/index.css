@@ -147,6 +147,9 @@ h3.show-gamegenre {
   margin-top: 10px;
   padding: auto;
 }
+div.col {
+  margin: 68px;
+}
 
 p.show-gamedate {
   color: white;
@@ -167,7 +170,7 @@ p.show-gamepublisher {
 p.show-gamereview {
   color: white;
   padding: 30px;
-  justify-content: center;
+  text-align:center;
 }
 p.show-gamenumber {
   color: white;
@@ -175,4 +178,30 @@ p.show-gamenumber {
   font-family: Fira Sans Condensed;
   font-weight: 600;
   font-size: 100px;
+}
+p.show-reviewcontainer {
+  display: flex;
+  text-align: center;
+}
+h2.createtext {
+  color: white;
+  margin: 40px
+}
+input {
+  margin: 12px;
+  height: 40px;
+  width: 150px;
+  border-radius: 2px;
+}
+button.browse-games-button {
+  position: relative;
+  background-color: (21, 60, 230);
+  color: rgb(255, 255, 255);
+  border: 2px solid black;
+  padding: 10px 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+button.browse-games-button:hover {
+  background-color: rgb(255, 0, 0);
+  transform: translateY(-5px);
 }

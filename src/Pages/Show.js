@@ -29,9 +29,9 @@ const Show = () => {
         <p className="show-gamerating">Rating: {game.Rating}</p>
         <p className="show-gameimage">Hours Played: {game.Hours}</p>
         <p className="show-gamepublisher">Publisher: {game.Publisher}</p>
-        <div>
+        <div className="show-reviewcontainer">
         <p className="show-gamereview">{game.Review}</p>
-        <p className="show-gamenumber">{game.Number}</p>
+        <p className="show-gamenumber">GameScore:  {game.Number}</p>
         </div>
       </div>
     </div>

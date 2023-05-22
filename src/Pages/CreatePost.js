@@ -35,7 +35,7 @@ const CreatePost = (props) => {
 
   return (
     <section>
-      <h2>Create A New Post </h2>
+      <h2 className="createtext">Create A New Post </h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
