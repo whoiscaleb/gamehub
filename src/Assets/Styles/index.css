@@ -1,16 +1,3 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
 *{
   margin: 0;
   padding: 0;
@@ -20,7 +7,10 @@ code {
 .home{
   width: 100%;
   height: 100vh;
-  background-color: #000;;
+  background-color: #000000;
+}
+body {
+  background-color: #000;
 }
 .header {
   display: flex;
@@ -28,13 +18,16 @@ code {
   align-items: center; 
   width: 100%;
   height: 120px;
-  background-color: #cd4536;
+  background-color: #ee0e0e;
   padding: 10px 30px;
 }
 .logo h1 {
   font-size: 35px;
+  font-family: Fira Sans Condensed;
+  font-weight: 600px;
   color: #000;
   font-weight: 600;
+  text-decoration: none;
 }
 .header .navigation ul li {
   display: inline-block;
@@ -49,12 +42,137 @@ code {
 .header .btn {
   padding: 10px 50px;
 }
-.header .btn button{
+.header .btn button , .col button{
   padding: 10px 30px;
-  background-color: blue;
-  border: 1px solid blue;
+  background-color: rgb(21, 60, 230);
+  border: 1px solid rgb(21, 60, 230);
   border-radius: 6px;
-  color: #fff;
+  color: #ffffff;
   font-size: 15px;
   font-weight: 500;
+}
+
+ /* MAIN */
+.main {
+  display: flex;
+  height: 80%;
+  align-items: center;
+}
+.col{
+  flex-basis: 50%;
+  margin: auto;
+}
+.col h2{
+  font-size: 45px;
+  color: #fff;
+  font-weight: 600;
+}
+.col p{
+  font-size: 20px;
+  color: gray;
+  font-weight: 500; 
+  margin-top: 20px;
+}
+.col1 {
+  margin-left: 60px;
+  margin-top: 30px;
+}
+.col button{ 
+  margin-top: 30px;
+}
+.card{
+  width: 200px;
+  display: inline-block;
+  box-sizing: border-box;
+  height: 220px;
+  margin: 10px 15px;
+  padding: 15px 25px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: 0.6s ease;
+  cursor: pointer;
+}
+
+.card1{
+  background-image: url(https://upload.wikimedia.org/wikipedia/en/8/8d/Super_Mario_Odyssey.jpg);
+  height: 250px;
+}
+.card2{
+  background-image: url(https://i.ytimg.com/vi/19Bwj4KSFG8/maxresdefault.jpg);
+  height: 250px;
+  width: 260px;
+}
+.card3{
+  background-image: url(../diablo_2.jpg) ;
+  height: 250px;
+}
+.card4{
+  background-image: url(https://cdn.mobygames.com/covers/11028481-overwatch-2-nintendo-switch-front-cover.jpg) ;
+  height: 250px;
+  width: 270px;
+}
+.card5{
+  background-image: url(https://www.rpgfan.com/wp-content/uploads/2020/10/Divinity-Original-Sin-II-Cover-Art-001.jpg) ;
+  height: 250px;
+}
+.card6{
+  background-image: url(https://e.snmc.io/lk/l/x/b5be8df43e776c5052af3bff0f7b9b78/5285977) ;
+  height: 250px;
+  width: 200px;
+}
+.card:hover{
+   transform: translateY(-30px)
+}
+.gameimage {
+  width: 200px;
+  display: inline-block;
+  box-sizing: border-box;
+  height: 300px;
+  width: 300px;
+  margin: 10px 15px;
+  padding: 15px 25px;
+}
+img.show-gameimage {
+  height: 300px;
+}
+h1.show-gametitle {
+  text-decoration: none;
+  color:#fff;
+  padding: auto;
+  margin-top: 20px;
+}
+h3.show-gamegenre {
+  color: white;
+  margin-top: 10px;
+  padding: auto;
+}
+
+p.show-gamedate {
+  color: white;
+  padding: auto;
+}
+p.show-gameplayed {
+  color: white;
+}
+p.show-gamerating {
+  color: white;
+}
+p.show-gameimage {
+  color: white;
+}
+p.show-gamepublisher {
+  color: white;
+}
+p.show-gamereview {
+  color: white;
+  padding: 30px;
+  justify-content: center;
+}
+p.show-gamenumber {
+  color: white;
+  padding: 30px;
+  font-family: Fira Sans Condensed;
+  font-weight: 600;
+  font-size: 100px;
 }

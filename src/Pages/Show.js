@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import '../Assets/Styles/index.css'
 
 const Show = () => {
   const { id } = useParams();
@@ -18,18 +19,26 @@ const Show = () => {
   }
 
   return (
-    <div>
-      <h1>{game.Game}</h1>
-      <img src={game.Image} alt={game.Game} />
-      <h3>Genre: {game.Genre}</h3>
-      <p>Release Date: {game.ReleaseDate}</p>
-      <p>Played On: {game.PlayedOn}</p>
-      <p>Hours Played: {game.Hours}</p>
-      <p>Rating: {game.Rating}</p>
-      <p>Review: {game.Review}</p>
-      <p>Publisher: {game.Publisher}</p>
+    <div className="show-container">
+      <h1 className="show-gametitle">{game.Game}</h1>
+      <img className="show-gameimage" src={game.Image} alt={game.Game} />
+      <div className="show-details">
+        <h3 className="show-gamegenre">Genre: {game.Genre}</h3>
+        <p className="show-gamedate">Release Date: {game.ReleaseDate}</p>
+        <p className="show-gameplayed">Played On: {game.PlayedOn}</p>
+        <p className="show-gamerating">Rating: {game.Rating}</p>
+        <p className="show-gameimage">Hours Played: {game.Hours}</p>
+        <p className="show-gamepublisher">Publisher: {game.Publisher}</p>
+        <div>
+        <p className="show-gamereview">{game.Review}</p>
+        <p className="show-gamenumber">{game.Number}</p>
+        </div>
+      </div>
     </div>
   );
+  
 };
 
 export default Show;
+
+

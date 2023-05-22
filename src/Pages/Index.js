@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import "../Assets/Styles/index.css";
 
 const Index = ({ game }) => {
   const [gameData, setGameData] = useState(null);
+  
 
   useEffect(() => {
     // Fetch game data from Mongo
@@ -18,9 +20,9 @@ const Index = ({ game }) => {
     return gameData.map((gameItem) => (
       <div key={gameItem._id} className="post">
         <Link to={`/collection/${gameItem._id}`}>
-          <h1>{gameItem.Game}</h1>
+          <h1 className="gametitle">{gameItem.Game}</h1>
         </Link>
-        <img src={gameItem.Image} alt={gameItem.Game} />
+        <img className="game-image"src={gameItem.Image} alt={gameItem.Game} />
         <h3>{gameItem.Genre}</h3>
       </div>
     ));

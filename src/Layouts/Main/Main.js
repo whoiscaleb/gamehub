@@ -3,8 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import Index from '../../Pages/Index.js';
 import Show from '../../Pages/Show.js';
 import CreatePost from '../../Pages/CreatePost.js';
-import Home from '../../Pages/Home.js';
-
+import "../../Assets/Styles/index.css"
 const Main = () => {
   const [gameData, setGameData] = useState(null);
   const URL = 'http://localhost:3000/';
@@ -73,8 +72,22 @@ const Main = () => {
           path="/collection/create"
           element={<CreatePost createGame={createGame} />}
         />
-        <Route path="/" element={<Home />} />
       </Routes>
+      {/* <div className="main">
+        <div className="col">
+          <h2>Your Games</h2>
+          <p>Reviews on the latest games releasing. Make sure every game is worth that hefty price tag.</p>
+          <button type="button">Browse Games</button>
+        </div>
+        <div className="col">
+          <div className="card card1"></div>
+          <div className="card card2"></div>
+          <div className="card card3"></div>
+          <div className="card card4"></div>
+          <div className="card card5"></div>
+          <div className="card card6"></div>
+        </div>
+      </div> */}
     </main>
   );
 };
