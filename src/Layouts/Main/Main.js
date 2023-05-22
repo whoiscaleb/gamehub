@@ -11,7 +11,7 @@ import Splash from '../../Pages/splash.js';
 
 const Main = (props) => {
   const [gameData, setGameData] = useState(null);
-  const URL = 'http://localhost:3000/';
+  const URL = 'https://gamehub-backend.onrender.com/';
 
   const navigate = useNavigate();
 
