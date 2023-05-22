@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Main from '../Layouts/Main/Main';
 import Header from '../Layouts/Header/Header';
 
@@ -13,4 +13,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Home;
