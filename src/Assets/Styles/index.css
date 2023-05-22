@@ -227,3 +227,25 @@ button:hover {
   background-color: rgb(255, 0, 0);
   transform: translateY(-5px);
 }
+
+input.button {
+  position: relative;
+  background-color: (21, 60, 230);
+  color: rgb(0, 0, 0);
+  border: 2px solid black;
+  padding: 10px 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+input.button:hover {
+  background-color: rgb(255, 0, 0);
+  transform: translateY(-5px);
+}
+li.welcome-msg {
+  color: white;
+}
+img.show-gameimage {
+  height: 87%;
+  width: 30%;
+  border-radius: 90px;
+}

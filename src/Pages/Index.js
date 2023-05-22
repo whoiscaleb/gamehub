@@ -28,6 +28,9 @@ const Index = ({ game }) => {
     ));
   };
 
+
+
+
   const loading = () => {
     return <h1>Loading...</h1>;
   };

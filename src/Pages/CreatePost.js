@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import Header from '../Layouts/Header/Header';
-import Main from '../Layouts/Main/Main';
 
 const CreatePost = (props) => {
   const [newForm, setNewForm] = useState({
@@ -36,9 +34,6 @@ const CreatePost = (props) => {
   };
 
   return (
-    <div>
-    <Header user={props.user} />
-    <Main user={props.user} />
     <section>
       <h2 className="create">Create A New Post </h2>
       <form onSubmit={handleSubmit}>
@@ -107,10 +102,9 @@ const CreatePost = (props) => {
         />
 
         {/* Add more input fields for other properties of the game */}
-        <input type="submit" value="Create Post" />
+        <input className="button" type="submit" value="Create Post" />
       </form>
     </section>
-    </div>
   );
 };
 

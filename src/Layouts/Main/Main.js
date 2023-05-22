@@ -3,9 +3,11 @@ import { Routes, Route } from 'react-router-dom';
 import Index from '../../Pages/Index.js';
 import Show from '../../Pages/Show.js';
 import CreatePost from '../../Pages/CreatePost.js';
-import "../../Assets/Styles/index.css"
-import { Link } from 'react-router-dom';
+import "../../Assets/Styles/index.css";
 import { useNavigate } from 'react-router-dom';
+import Splash from '../../Pages/splash.js';
+
+
 
 const Main = (props) => {
   const [gameData, setGameData] = useState(null);
@@ -73,7 +75,7 @@ const Main = (props) => {
           element={props.user ? (
             <Index gameData={gameData} />
           ) : (
-            // Use the navigate function to redirect
+            // redirect
             () => {
               navigate('/', { replace: true });
               return null;
@@ -84,28 +86,25 @@ const Main = (props) => {
           path="/collection/:id"
           element={<Show gameData={gameData} updateGame={updateGame} deleteGame={deleteGame} />}
         />
-        <Route
+      <Route
           path="/collection/create"
-          element={<CreatePost createGame={createGame} />}
+          element={props.user ? (
+            <CreatePost createGame={createGame} />
+          ) : (
+            // redirect
+            () => {
+              navigate('/', { replace: true });
+              return null;
+            }
+          )}
         />
+        <Route
+          exact path="/"
+          element={<Splash />}
+        />
+
       </Routes>
-      <div className="main">
-        <div className="col">
-          <h2>GameHub</h2>
-          <p>Reviews on the latest games releasing. Make sure every game is worth that hefty price tag.</p>
-          <Link to="/collection">
-          <button className="browse-games-button"type="button">Browse Games</button>
-          </Link>
-        </div>
-        <div className="col">
-          <div className="card card1"></div>
-          <div className="card card2"></div>
-          <div className="card card3"></div>
-          <div className="card card4"></div>
-          <div className="card card5"></div>
-          <div className="card card6"></div>
-        </div>
-      </div>
+   
     </main>
   );
 };

@@ -1,6 +1,6 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
-import { login, logout, auth} from '../../services/firebase';
+import { login, logout } from '../../services/firebase';
 import '../../Assets/Styles/styles.scss'
 import '../../Assets/Styles/index.css'
 
@@ -28,7 +28,7 @@ const Header = (props) => {
       <div className="btn">
         {props.user ? 
         <>
-        <li>Welcome, {props.user.displayName}</li>
+        <li className="welcome-msg">Welcome, {props.user.displayName}</li>
         <li>
           <img 
               className="user-img" src={props.user.photoURL}
