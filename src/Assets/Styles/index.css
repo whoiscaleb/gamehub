@@ -133,14 +133,15 @@ body {
   margin: 10px 15px;
   padding: 15px 25px;
 }
-img.show-gameimage {
+img.game-image {
   height: 300px;
 }
-h1.show-gametitle {
+h1.gametitle {
   text-decoration: none;
   color:#fff;
   padding: auto;
   margin-top: 20px;
+
 }
 h3.show-gamegenre {
   color: white;
@@ -202,6 +203,27 @@ button.browse-games-button {
   transition: transform 0.3s ease, background-color 0.3s ease;
 }
 button.browse-games-button:hover {
+  background-color: rgb(255, 0, 0);
+  transform: translateY(-5px);
+}
+img.user-img {
+ border-radius: 50%;
+ height: 4.68rem;
+}
+li {
+  list-style: none;
+  display: inline-block;
+  margin: 10px; 
+}
+button {
+  position: relative;
+  background-color: (21, 60, 230);
+  color: rgb(255, 255, 255);
+  border: 2px solid black;
+  padding: 10px 20px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+button:hover {
   background-color: rgb(255, 0, 0);
   transform: translateY(-5px);
 }

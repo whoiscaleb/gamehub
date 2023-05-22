@@ -5,11 +5,13 @@ import Show from '../../Pages/Show.js';
 import CreatePost from '../../Pages/CreatePost.js';
 import "../../Assets/Styles/index.css"
 import { Link } from 'react-router-dom';
-const Main = () => {
+import { useNavigate } from 'react-router-dom';
+
+const Main = (props) => {
   const [gameData, setGameData] = useState(null);
   const URL = 'http://localhost:3000/';
 
-
+  const navigate = useNavigate();
 
   const getGame = async () => {
     const response = await fetch(URL);
@@ -66,7 +68,18 @@ const Main = () => {
   return (
     <main>
       <Routes>
-        <Route path="/collection" element={<Index gameData={gameData} />} />
+      <Route
+          path="/collection"
+          element={props.user ? (
+            <Index gameData={gameData} />
+          ) : (
+            // Use the navigate function to redirect
+            () => {
+              navigate('/', { replace: true });
+              return null;
+            }
+          )}
+        />
         <Route
           path="/collection/:id"
           element={<Show gameData={gameData} updateGame={updateGame} deleteGame={deleteGame} />}

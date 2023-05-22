@@ -1,7 +1,11 @@
 import React from 'react'
 // import { Link } from 'react-router-dom'
+import { login, logout, auth} from '../../services/firebase';
+import '../../Assets/Styles/styles.scss'
+import '../../Assets/Styles/index.css'
 
-const Header = () => {
+
+const Header = (props) => {
   const linkStyle = {
     textDecoration: 'none',
     color: 'white',
@@ -22,7 +26,20 @@ const Header = () => {
         </ul>
       </nav>
       <div className="btn">
-        <button type="button">Login</button>
+        {props.user ? 
+        <>
+        <li>Welcome, {props.user.displayName}</li>
+        <li>
+          <img 
+              className="user-img" src={props.user.photoURL}
+              alt={props.user.displayName}
+              />
+        </li>
+          <button className="logbtn" onClick={logout} type="button">Logout</button>
+          </>
+         : 
+          <button className="logbtn" onClick={login} type="button">Login</button>
+        }
       </div>
     </div>
   )
