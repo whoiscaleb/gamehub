@@ -15,7 +15,7 @@ A review blog built with gamers in mind.
 * Social Media Integration
 
 ### Getting Started
-[Wireframe](https://whimsical.com/gamehub-Rin1sUVXPZkR6C4jBWb3aE)
-[Trello Board](https://trello.com/b/m2MsMyu4/gamehub)
-[Click here to Open Deployed App](https://gamehubusa.netlify.app/)
+<p>[Wireframe](https://whimsical.com/gamehub-Rin1sUVXPZkR6C4jBWb3aE)</p>
+<p>[Trello Board](https://trello.com/b/m2MsMyu4/gamehub)</p>
+<p>[Click here to Open Deployed App](https://gamehubusa.netlify.app/)</p>
 
