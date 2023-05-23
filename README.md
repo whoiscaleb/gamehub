@@ -1,5 +1,5 @@
 <h1>GameHub</h1>
-A review blog built with gamers in mind.
+A review blog built with gamers in mind. Users can post their own game reviews and read other users' posts.
 
 ## Screenshots
 ![Homepage](./homepage.png?raw=true "Home Screen")
