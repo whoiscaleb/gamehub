@@ -1,3 +1,4 @@
+<h1>GameHub</h1>
 A review blog built with gamers in mind.
 
 ## Screenshots
